@@ -34,3 +34,8 @@ const bikes = [
     weight: "18",
   },
 ];
+
+//*forEach sull' array
+bikes.forEach((bike) => {
+  console.log(bike);
+});
