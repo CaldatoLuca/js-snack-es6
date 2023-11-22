@@ -10,16 +10,16 @@
 
 const bikes = [
   {
-    bikeName: "atala",
-    weight: "15",
+    bikeName: "Atala",
+    weight: "35",
   },
   {
     bikeName: "Kona",
-    weight: "20",
+    weight: "10",
   },
   {
     bikeName: "Giant",
-    weight: "30",
+    weight: "10",
   },
   {
     bikeName: "Scott",
@@ -34,10 +34,28 @@ const bikes = [
     weight: "18",
   },
 ];
+const lightBike = {
+  lightBikeName: bikes[0].bikeName,
+  lightBikeWeight: bikes[0].weight,
+};
+const container = document.querySelector("ul");
+let plural = false;
 
 //*forEach sull' array
-bikes.forEach((bike) => {
+bikes.forEach((bike, index) => {
   const { bikeName, weight } = bike;
-  console.log(bikeName);
-  console.log(weight);
+
+  if (+lightBike.lightBikeWeight > +weight) {
+    lightBike.lightBikeWeight = weight;
+    lightBike.lightBikeName = bikeName;
+  } else if (+lightBike.lightBikeWeight === +weight && index > 0) {
+    lightBike.lightBikeName += ` - ${bikeName}`;
+    plural = true;
+  }
 });
+
+if (plural === false) {
+  container.innerHTML = `<li>La bici più leggera è ${lightBike.lightBikeName} e pesa: ${lightBike.lightBikeWeight} kg.</li>`;
+} else {
+  container.innerHTML = `<li>Le bici più leggere sono ${lightBike.lightBikeName} e il loro peso è: ${lightBike.lightBikeWeight} kg.</li>`;
+}
