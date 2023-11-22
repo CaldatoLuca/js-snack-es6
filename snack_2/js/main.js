@@ -6,7 +6,7 @@
 "use strict";
 //! funzioni
 
-const grandomInt = (min, max) => {
+const randomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
@@ -43,3 +43,18 @@ const teams = [
     againstFouls: 0,
   },
 ];
+
+const updatedTeams = teams.map((team) => {
+  let { teamName, points, againstFouls } = team;
+  points = randomInt(0, 100);
+  againstFouls = randomInt(0, 10);
+  return { teamName, points, againstFouls };
+});
+console.log(updatedTeams);
+
+const noPointsTeams = updatedTeams.map((team) => {
+  let { teamName, againstFouls } = team;
+
+  return { teamName, againstFouls };
+});
+console.log(noPointsTeams);
