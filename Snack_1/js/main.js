@@ -37,5 +37,7 @@ const bikes = [
 
 //*forEach sull' array
 bikes.forEach((bike) => {
-  console.log(bike);
+  const { bikeName, weight } = bike;
+  console.log(bikeName);
+  console.log(weight);
 });
