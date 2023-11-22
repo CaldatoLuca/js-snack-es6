@@ -1,5 +1,5 @@
 "use strict";
-
+//array di oggetti bici
 const bikes = [
   {
     bikeName: "Atala",
@@ -26,17 +26,24 @@ const bikes = [
     weight: "13",
   },
 ];
+
+//oggetto bici leggera
 const lightBike = {
   lightBikeName: bikes[0].bikeName,
   lightBikeWeight: bikes[0].weight,
 };
-const container = document.querySelector("ul");
+
+//elemento html
+const elementUl = document.getElementById("light-bike");
+
+//variabile di controllo per il plurale
 let plural = false;
 
 //*forEach sull' array
 bikes.forEach((bike, index) => {
-  const { bikeName, weight } = bike;
+  const { bikeName, weight } = bike; //destrutturazione
 
+  //condizione per trovare la bici più leggera e else if per bici con stesso peso
   if (+lightBike.lightBikeWeight > +weight) {
     lightBike.lightBikeWeight = weight;
     lightBike.lightBikeName = bikeName;
@@ -46,8 +53,9 @@ bikes.forEach((bike, index) => {
   }
 });
 
+//stampa del risultato in base a plural
 if (plural === false) {
-  container.innerHTML = `<li>La bici più leggera è <span style="color: salmon;">${lightBike.lightBikeName}</span> e pesa ${lightBike.lightBikeWeight} kg.</li>`;
+  elementUl.innerHTML = `<li>La bici più leggera è <span style="color: salmon;">${lightBike.lightBikeName}</span> e pesa ${lightBike.lightBikeWeight} kg.</li>`;
 } else {
-  container.innerHTML = `<li>Le bici più leggere sono <span style="color: purple;">${lightBike.lightBikeName}</span> e il loro peso è di ${lightBike.lightBikeWeight} kg.</li>`;
+  elementUl.innerHTML = `<li>Le bici più leggere sono <span style="color: purple;">${lightBike.lightBikeName}</span> e il loro peso è di ${lightBike.lightBikeWeight} kg.</li>`;
 }
