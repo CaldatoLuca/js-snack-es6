@@ -1,16 +1,12 @@
-// 1. Creo array di oggetti per le squadre (nome, punti fatti = 0, falli subiti = 0)
-// 2. Creo una funzione di numeri random da inserire in punti fatti e falli subiti
-//    - NB per preferenza personale terrò i valori in un range tra 0 e 100 per i punti e tra 0 e 10 per i falli subiti (entrabi interi)
-// 3. Creo un nuvo array con nome e falli subit (.filter) e stampo in console
-
 "use strict";
 //! funzioni
-
+// funzione che genera un intero estremi compresi
 const randomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 //! programma
+//array delle squadre
 const teams = [
   {
     teamName: "Inter",
@@ -44,17 +40,21 @@ const teams = [
   },
 ];
 
+//creo un array con i valori aggiornati di punti e falli
 const updatedTeams = teams.map((team) => {
   let { teamName, points, againstFouls } = team;
   points = randomInt(0, 100);
   againstFouls = randomInt(0, 10);
   return { teamName, points, againstFouls };
 });
+console.log(`Array aggiornato con punti fatti e falli subiti:`);
 console.log(updatedTeams);
 
+//creo un array in cui non considero i punti fatti
 const noPointsTeams = updatedTeams.map((team) => {
   let { teamName, againstFouls } = team;
 
   return { teamName, againstFouls };
 });
+console.log(`Array aggiornato senza punti fatti:`);
 console.log(noPointsTeams);
