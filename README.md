@@ -19,10 +19,14 @@ _Procedimento_
 NB Usare i template literals `` per inserire l' Html
 
 _Esecuzione_
+
 Inizializzo un array di oggetti per raggruppare gli elementi 'bici'.
-Inizializzo un oggetto `lightBike` che avrà come chiavi il nome e il peso della prima bici del mio array (confrontando i valori nel `.forEach` cambierò il valore delle chiavi, se necessario)
-Prendo dall' html l' elemento contenitore `ul`
-Inizializzo una variabile di controllo nel caso in cui ci siano più bici uguali (questa cambirà il tipo di output che avrò a schermo - plurale o singolare)
+
+Inizializzo un oggetto `lightBike` che avrà come chiavi il nome e il peso della prima bici del mio array (confrontando i valori nel `.forEach` cambierò il valore delle chiavi, se necessario).
+
+Prendo dall' html l' elemento contenitore `ul`.
+
+Inizializzo una variabile di controllo nel caso in cui ci siano più bici uguali (questa cambirà il tipo di output che avrò a schermo - plurale o singolare).
 
 ```js
 bikes.forEach((bike, index) => {
@@ -40,7 +44,7 @@ bikes.forEach((bike, index) => {
 
 Avvio un 'ciclo' `.forEach` sul mio array per confrontare tutti gli elementi.
 Attraverso la destrutturazione prendo i valori delle chiavi dei miei oggetti e le uso per confrontarle col i valori dell' oggetto 'lightBike'.
-L' else if serve, appunto, per il caso di più bici con lo stesso peso
+L' else if serve servirà nel caso in cui ci siano più bici leggere con lo stesso peso.
 
 ```js
 if (plural === false) {
@@ -52,4 +56,8 @@ if (plural === false) {
 
 Stampo su schermo il risulato con template literal (come da consegna)
 
-NB Per testare ho applicato dello 'style' all' interno del template literal stesso.
+NB
+
+Per testare ho applicato dello 'style' all' interno del template literal stesso.
+
+Anche se non specificato ho voluto gestire la casistica delle bici uguali.
