@@ -1,11 +1,3 @@
-// 1. Creare un file html con un container in cui inserire i dati
-// 2. Creare un array di oggetti
-// 3. 'Selezionare' gli elementi dell' array con `.forEach`
-// 4. Estrarre tutti i valori degli oggetti utilizzando destructuring
-// 5. Tramite un if (o `.filter`?) stampare l' oggetto bici con peso minore
-
-// NB Usare i template literals `` per inserire l' Html
-
 "use strict";
 
 const bikes = [
@@ -15,15 +7,15 @@ const bikes = [
   },
   {
     bikeName: "Kona",
-    weight: "10",
+    weight: "14",
   },
   {
     bikeName: "Giant",
-    weight: "10",
+    weight: "20",
   },
   {
     bikeName: "Scott",
-    weight: "10",
+    weight: "16",
   },
   {
     bikeName: "Nakamura",
@@ -31,7 +23,7 @@ const bikes = [
   },
   {
     bikeName: "Cube",
-    weight: "18",
+    weight: "13",
   },
 ];
 const lightBike = {
@@ -55,7 +47,7 @@ bikes.forEach((bike, index) => {
 });
 
 if (plural === false) {
-  container.innerHTML = `<li>La bici più leggera è ${lightBike.lightBikeName} e pesa: ${lightBike.lightBikeWeight} kg.</li>`;
+  container.innerHTML = `<li>La bici più leggera è <span style="color: salmon;">${lightBike.lightBikeName}</span> e pesa ${lightBike.lightBikeWeight} kg.</li>`;
 } else {
-  container.innerHTML = `<li>Le bici più leggere sono ${lightBike.lightBikeName} e il loro peso è: ${lightBike.lightBikeWeight} kg.</li>`;
+  container.innerHTML = `<li>Le bici più leggere sono <span style="color: purple;">${lightBike.lightBikeName}</span> e il loro peso è di ${lightBike.lightBikeWeight} kg.</li>`;
 }
