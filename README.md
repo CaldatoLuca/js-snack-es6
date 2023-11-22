@@ -82,3 +82,32 @@ _Procedimento_
 2. Creo una funzione di numeri random da inserire in punti fatti e falli subiti
    - NB per preferenza personale terrò i valori in un range tra 0 e 100 per i punti e tra 0 e 10 per i falli subiti (entrabi interi)
 3. Creo un nuvo array con nome e falli subit (.filter) e stampo in console
+
+_Esecuzione_
+
+Inizializzo un array di oggetti per raggruppare gli elementi 'team' (le cui proprità saranno nome/punti/falli subiti).
+
+Creo una funzione che genera numeri random interi (estremi inclusi)
+
+```js
+//creo un array con i valori aggiornati di punti e falli
+const updatedTeams = teams.map((team) => {
+  let { teamName, points, againstFouls } = team;
+  points = randomInt(0, 100);
+  againstFouls = randomInt(0, 10);
+  return { teamName, points, againstFouls };
+});
+```
+
+Aggiorno l' array coi valori dati dalla funzione (la funzione map mi da come risultato un array identico a quello iniziale ma coi valori aggiornati)
+
+```js
+//creo un array in cui non considero i punti fatti
+const noPointsTeams = updatedTeams.map((team) => {
+  let { teamName, againstFouls } = team;
+
+  return { teamName, againstFouls };
+});
+```
+
+Subito dopo vado a 'copiare' l' array aggiornato ma nel return non inserisco points, in questo modo l' array risultate avrà solo il nome della squadra e i falli subiti come proprietà degli oggetti.
