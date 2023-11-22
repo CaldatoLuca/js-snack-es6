@@ -4,6 +4,7 @@
 
 - [Snack 1](#snack-1)
 - [Snack 2](#snack-2)
+- [Snack 3](#snack-3)
 
 ## Snack 1
 
@@ -111,3 +112,46 @@ const noPointsTeams = updatedTeams.map((team) => {
 ```
 
 Subito dopo vado a 'copiare' l' array aggiornato ma nel return non inserisco points, in questo modo l' array risultate avrà solo il nome della squadra e i falli subiti come proprietà degli oggetti.
+
+## Snack 3
+
+_Consegna_
+
+Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
+Usiamo i nuovi metodi degli array foreach o filter.
+
+_Procedimento_
+
+1. Creo un array semplice
+2. Creo la funzione
+3. Faccio controlli sui valori di a e b e che siano numeri (anche se superano la lunghezza dell' array?)
+4. Con `.filter` creo un nuovo array coi valori con index compreso tra a e b
+5. ritorno il nuovo array ed eseguo la funzione sul mio array
+
+NB il nuovo array avrà gli elementi compresi tra a e b (a e b esclusi)
+
+_Esecuzione_
+
+```js
+if (isNaN(a) || isNaN(b)) return console.log("i valori accettati sono numeri"); //controllo se a e b siano numeri e che a<b
+if (a > b) return console.log("a non può essere maggiore di b"); //controllo che a<b
+if (a > myArray.length || b > myArray.length)
+  return console.log("hai superato la lunghezza dell' array"); // controllo se a e b superano la lunghezza dell' array
+```
+
+Condizioni su a e b
+
+```js
+//filtro l' array e creo un nuovo array con gli elementi compresi tra a e b
+const filterArray = array.filter((element, index) => {
+  //elementi compresi tra a e b
+  if (index > a && index < b) {
+    return true;
+  } else {
+    return false;
+  }
+});
+```
+
+Creo l' array con valori compresi tra a e b
