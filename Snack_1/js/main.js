@@ -3,34 +3,34 @@
 const bikes = [
   {
     bikeName: "Atala",
-    weight: "35",
+    weight: 2,
   },
   {
     bikeName: "Kona",
-    weight: "14",
+    weight: 14,
   },
   {
     bikeName: "Giant",
-    weight: "20",
+    weight: 2,
   },
   {
     bikeName: "Scott",
-    weight: "16",
+    weight: 16,
   },
   {
     bikeName: "Nakamura",
-    weight: "13",
+    weight: 2,
   },
   {
     bikeName: "Cube",
-    weight: "13",
+    weight: 12,
   },
 ];
 
 //oggetto bici leggera
 const lightBike = {
   lightBikeName: bikes[0].bikeName,
-  lightBikeWeight: bikes[0].weight,
+  lightBikeWeight: Number.MAX_VALUE,
 };
 
 //elemento html
@@ -44,10 +44,10 @@ bikes.forEach((bike, index) => {
   const { bikeName, weight } = bike; //destrutturazione
 
   //condizione per trovare la bici più leggera e else if per bici con stesso peso
-  if (+lightBike.lightBikeWeight > +weight) {
+  if (lightBike.lightBikeWeight > weight) {
     lightBike.lightBikeWeight = weight;
     lightBike.lightBikeName = bikeName;
-  } else if (+lightBike.lightBikeWeight === +weight && index > 0) {
+  } else if (lightBike.lightBikeWeight === weight && index > 0) {
     lightBike.lightBikeName += ` - ${bikeName}`;
     plural = true;
   }
@@ -59,3 +59,8 @@ if (plural === false) {
 } else {
   elementUl.innerHTML = `<li>Le bici più leggere sono <span style="color: purple;">${lightBike.lightBikeName}</span> e il loro peso è di ${lightBike.lightBikeWeight} kg.</li>`;
 }
+
+//!ricorda che nelle key si possono mettere i numeri (ci pensi ma non lo fai)
+//! usa MX.VALUE come primo valore di comparazione, cosi se il primo eleemto non ha peso non confronto con undefined. Sono meno dipendende dai dati inseriti
+//!per il nome della bici dipendiamo per forza dai dati inseriti
+//! soluzione alternativa (fare dopo il ciclo un filter che cre un array, sempre di obj, con le bici più leggere(peso = lightweight return true))
